@@ -19,15 +19,16 @@
 
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" [routerLink]="['/home']">
+    <ion-tab-button tab="home" (click)="goToHomePage()">
       <ion-icon name="today-outline"></ion-icon>
       <ion-label>ToDo</ion-label>
-      <ion-badge>6</ion-badge>
+      <ion-badge>{{ nb }}</ion-badge>
     </ion-tab-button>
 
-    <ion-tab-button tab="about" [routerLink]="['/done']">
+    <ion-tab-button tab="about" (click)="goToDonePage()">
       <ion-icon name="checkmark-done-outline"></ion-icon>
       <ion-label>Done</ion-label>
+      <ion-badge>{{allTaskDone.length}}</ion-badge>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
