@@ -21,7 +21,6 @@ export class HomePage implements OnInit{
     private authService: AuthenticateService,
      private navCtrl: NavController,
      
-   
      ) {
     let myDate = new Date();
     let options = {weekday : 'long', month :'long', day : 'numeric' }
