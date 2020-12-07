@@ -1,0 +1,81 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Log In </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="bg-img">
+    <div class="ion-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" offset="4" class="ion-align-self-center">
+            <ion-img src="../../assets/auth.png"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <form
+        class="form"
+        [formGroup]="validations_form"
+        (ngSubmit)="loginUser(validations_form.value)"
+      >
+        <!--email-->
+        <ion-item>
+          <ion-label position="floating" color="primary">Email</ion-label>
+          <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.email">
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)"
+            >
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end email-->
+
+        <!--password-->
+        <ion-item>
+          <ion-label position="floating" color="primary">Password</ion-label>
+          <ion-input
+            type="password"
+            formControlName="password"
+            class="form-controll"
+            required
+          ></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)"
+            >
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end pass-->
+
+        <ion-button
+          expand="block"
+          color="danger"
+          type="submit"
+          [disabled]="!validations_form.valid"
+          >SIGN In</ion-button
+        >
+
+        <label class="error-message">{{errorMessage}}</label>
+      </form>
+      <p class="go-to-register">
+        <ion-button color="success" type="submit" (click)="goToRegisterPage()"
+          >Register</ion-button
+        >
+        <ion-button color="medium" type="submit" (click)="goToForgetPassPage()"
+          >FORGET PASSWORD</ion-button
+        >
+      </p>
+    </div>
+  </div>
+</ion-content>

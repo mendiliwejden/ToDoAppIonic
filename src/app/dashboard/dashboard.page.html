@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="bg-img">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center> Welcome to Dashboard! </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center> Your Registered EmailID : {{userEmail}} </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" [routerLink]="['/home']">
+      <ion-icon name="today-outline"></ion-icon>
+      <ion-label>ToDo</ion-label>
+      <ion-badge>6</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="about" [routerLink]="['/done']">
+      <ion-icon name="checkmark-done-outline"></ion-icon>
+      <ion-label>Done</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
